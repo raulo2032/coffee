@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<%- include ('./partials/head', {style: 'home.css', title: 'Home'}) %>
+
+  <body>
+    <%- include ('./partials/header') %>
+
+
+    <main class="contenedor-principal">
+      <section class="fondo bg-verde-oscuro separacion-10px">
+        
+        <div class="imagenes-promo">
+        <img class="fondo-cafe" src="/img/granos-cafe.png" alt="granos de cafe" />
+        <img class="fondo-cafe-tablet" src="/img/granos-tablet.png" alt="granos de cafe">
+        <img class="product-promo"src="/img/products/promo-medium-roast.png" alt="" />
+      </div>
+  
+        <div class="texto">
+          <h1 class="titular-banner color-blanco">Combo medium roast.</h1>
+          <p class="parrafo color-blanco">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in
+            sapien felis. Nulla sollicitudin maximus accumsan.
+          </p>
+         <a href="/product/detail/49"><button class="button-amarillo">Comprar </button></a> 
+        </div>
+    
+      </section>
+  
+
+    <section class="caracteristicas-productos alineacion-centro-flex separacion-10px">
+      <div class="alineacion-centro-flex width-70">
+        <img class="estrellas" src="/img/iconos/estrellas.svg" alt="estrellas">
+      <h2 class="texto-centrado regular color-negro">¿Por qué nuestros productos son <strong class="black">diferentes</strong>?</h2>
+      </div>
+      <div class="iconos separacion-10px">
+        <article class="alineacion-centro-flex separacion-10px">
+          <img class="icono"  src="/img/iconos/icon-hojita.svg" alt="">
+          <p class="color-verde-oscuro black">Materiales 100% reciclados.</p>
+        </article>
+        <article class="alineacion-centro-flex separacion-10px">
+          <img class="icono"src="/img/iconos/icon-grano.svg" alt="">
+          <p class="color-verde-oscuro black">Sabores únicos y frescos.</p>
+        </article>
+        <article class="alineacion-centro-flex separacion-10px">
+          <img  class="icono" src="/img/iconos/icon-calidad.svg" alt="">
+          <p class="color-verde-oscuro black">Productos de alta calidad.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="destacados alineacion-centro-flex separacion-30px">
+      <h2 class="texto-centrado regular color-verde-oscuro width-70">Nuestros <strong>productos destacados</strong></h2>
+      <div class="container-destacados separacion-10px">
+        <!-- <img class="flechas"src="/img/iconos/flecha-izq.svg" alt="flecha"> -->
+     <% blonde.forEach(product=> { %>
+                <article class="card-container">
+                  <img src="/img/products/<%=product.image%>" alt="">
+                  <div class="text-card">
+                    <h5 class="black">
+                      <%= product.name %>
+                    </h5>
+                    <p>Proveniente de <%= product.region %>.</p>
+                    <div class="precio">
+                      <h5 class="black">$<%= product.price %>
+                      </h5>
+                      <a class="color-amarillo sin-estilos" href="/product/detail/<%=product.id%>">Ver más...</a>
+                    </div>
+
+                  </div>
+
+                </article>
+                <% }); %>
+                <% dark.forEach(product=> { %>
+                  <article class="card-container">
+                    <img src="/img/products/<%=product.image%>" alt="">
+                    <div class="text-card">
+                      <h5 class="black">
+                        <%= product.name %>
+                      </h5>
+                      <p>Proveniente de <%= product.region %>.</p>
+                      <div class="precio">
+                        <h5 class="black">$<%= product.price %>
+                        </h5>
+                        <a class="color-amarillo sin-estilos" href="/product/detail/<%=product.id%>">Ver más...</a>
+                      </div>
+  
+                    </div>
+  
+                  </article>
+                  <% }); %>
+
+      </div>
+     
+    </div>
+    </section>
+
+
+
+<section class="only-desktop">
+<div class="comments">
+<h3 class="regular color-verde-oscuro">¿Qué opinan <strong class="black">nuestros clientes?</strong></h3>
+<div class="container-comments">
+  <div class="header-comments">
+    <img src="/img/iconos/avatar.png" alt="avatar">
+    <h6 class="black color-negro">Laura Reed</h6>
+  </div>
+  <img class="quote" src="/img/iconos/Quote-Icon.svg" alt="">
+  <div class="text-comments">
+    <h6 class="black color-negro">Calidad excepcional</h6> 
+    <div class="estrellas">
+    <img src="/img/iconos/estrella-amarilla.svg" alt="">
+    <img src="/img/iconos/estrella-amarilla.svg" alt="">
+    <img src="/img/iconos/estrella-amarilla.svg" alt="">
+    <img src="/img/iconos/estrella-amarilla.svg" alt="">
+    <img src="/img/iconos/estrella-amarilla.svg" alt="">
+  </div>
+    <p>Sin dudarlo, es un café con una calidad increíble. De hecho con Coffee House empecé en esto del café de especialidad y desde mi primera compra no he vuelto a comprar café comercial. Es un salto tremendo.</p>
+  </div>
+</div>
+</div>
+<div class="line"></div>
+<div class="newsletter">
+  <h3 class="regular color-verde-oscuro">Suscríbete a nuestro <strong class="black">newsletter</strong></h3>
+  <div class="container-newsletter">
+    <h5 class="black">No te pierdas nuestras novedades:</h5>
+  <p>Promociones, lanzamientos, tutoriales, podcast, entrevistas  y más...</p>
+<form action="">
+  <input type="text" placeholder="Ingresa tu e-mail">
+  <button type="submit" class="black">Suscribirse</button>
+</form>
+
+</div>
+</div>
+
+</section>
+
+
+  </main>
+
+  <%- include('./partials/footer') %>
+  <script src="../../public/js/search.js"></script>
+  </body>
+</html>
